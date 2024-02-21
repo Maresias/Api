@@ -4,12 +4,16 @@
   "description": "API developed in the Rocketseat program",
   "main": "index.js",
   "scripts": {
-   "start": "node ./src/server.js"
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
   },
   "keywords": [],
   "author": "Alexandre correa",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }
