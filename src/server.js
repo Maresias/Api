@@ -15,6 +15,8 @@ app.get("/users", (request, response) =>{
 })
 
 app.post("/user", (request, response) => {
+    const {name, email, passworld} = request.body
+
     response.send('Agora você chamou o POST')
 })
 
