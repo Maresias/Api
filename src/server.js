@@ -18,7 +18,11 @@ app.get("/users", (request, response) =>{
 app.post("/user", (request, response) => {
     const {name, email, password} = request.body
 
-    response.send(`Nome: ${name} --- Email: ${email} --- Passworld: ${password}`)
+    //Envio em formato HTML
+    //response.send(`Nome: ${name} --- Email: ${email} --- Passworld: ${password}`)
+
+    //Envio em formato json
+    response.json({name, email, password})
 })
 
 const PORT = 3333;
