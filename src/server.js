@@ -17,7 +17,7 @@ app.get("/users", (request, response) =>{
 app.post("/user", (request, response) => {
     const {name, email, passworld} = request.body
 
-    response.send('Agora você chamou o POST')
+    response.send(`Nome: ${name} --- Email: ${email} --- Passworld: ${passworld}`)
 })
 
 const PORT = 3333;
