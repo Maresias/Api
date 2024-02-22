@@ -10,12 +10,15 @@ app.get("/message/:id/:user", (request, response) => {
     Para o usuario: ${user}`)
 })
 
-app.get("/users", (request, response) =>{
-    const {page, limit} = request.query
-    response.send(`Page: ${page} View: ${limit}`)
-})
 
-app.post("/user", (request, response) => {
+//METODO GET
+
+//app.get("/users", (request, response) =>{
+ ///   const {page, limit} = request.query
+//    response.send(`Page: ${page} View: ${limit}`)
+//})
+
+app.post("/users", (request, response) => {
     const {name, email, password} = request.body
 
     //Envio em formato HTML
