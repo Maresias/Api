@@ -18,3 +18,5 @@ app.post("/users", (request, response) => {
     //Envio em formato json
     response.json({name, email, password})
 })
+
+module.exports = usersRoutes
