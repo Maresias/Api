@@ -22,14 +22,7 @@ const usersRoutes = Router()
 // })
 
 usersRoutes.post("/", (request, response) => {
-    const {name, email, password} = request.body
-
-    //Envio em formato HTML CLIK AQUI PARA VER
-
-    //response.send(`Nome: ${name} --- Email: ${email} --- Passworld: ${password}`)
-
-    //Envio em formato json
-    response.json({name, email, password})
+    
 })
 
 module.exports = usersRoutes
