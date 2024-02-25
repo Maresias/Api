@@ -16,7 +16,7 @@ class UsersController{
     
         //Envio em formato json
         
-        response.json({name, email, password})
+        response.status(201).json({name, email, password})
     }
 }
 
