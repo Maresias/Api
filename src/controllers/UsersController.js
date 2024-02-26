@@ -1,3 +1,5 @@
+const AppError = require("../utils/AppError")
+
 class UsersController{
     /** REGRAS RECOMENDADAS PARA USO DOS CONTROLLES
      * Index - GET para listar vários registros.
@@ -9,6 +11,10 @@ class UsersController{
 
     create(request, response){
         const {name, email, password} = request.body
+
+        if(!name){
+            throw new AppError("Nome é Obrigatório")
+        }
 
         //Envio em formato HTML CLIK AQUI PARA VER
     
