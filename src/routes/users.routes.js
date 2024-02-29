@@ -39,6 +39,7 @@ const usersController = new UsersController()
 // usersRoutes.use(myMiddleware)
 
 usersRoutes.post("/",  usersController.create)
+usersRoutes.put("/:id", usersController.update)
 
 module.exports = usersRoutes
 

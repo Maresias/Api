@@ -30,6 +30,40 @@ class UsersController{
 
         return response.status(201).json()
     }
+
+    async update(request, response){
+        const {name, email, password} = request.body
+        const {id} = request.params
+
+        const database = await sqliteConnection()
+        const user = await database.get("SELECT * FROM users WHERE id = (?)", [id])
+        
+        if (!user){
+            throw new AppError("Usuário não encontrado")
+        }
+
+        const userWithUpdateEmail = await database.get("SELECT * FROM users WHERE email = (?)", [email])
+
+        if(userWithUpdateEmail && userWithUpdateEmail.id !== user.id){
+            throw new AppError("Este e-mail já está em uso.")
+        }
+
+        user.name = name
+        user.email = email
+        user.password = password
+
+        await database.run(
+          ` UPDATE users SET
+            name = ?,
+            email = ?,
+            password = ?,
+            updated_at = ?
+            WHERE id = ? `,
+            [user.name, user.email, user.password, new Date(), id]
+        )
+
+        return response.status(200).json()
+    }
 }
 
 
