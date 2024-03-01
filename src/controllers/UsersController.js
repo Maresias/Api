@@ -63,8 +63,7 @@ class UsersController{
             }
         }
 
-        user.password = password
-
+    
         await database.run(
           ` UPDATE users SET
             name = ?,
