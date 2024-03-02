@@ -1,8 +1,8 @@
 
-exports.up = function(knex) {
-  
-};
+exports.up = knex => knex.schema.createTable("notes", table =>{
 
-exports.down = function(knex) {
-  
-};
+})
+
+exports.down = knex => knex.schema.createTable("notes", table =>{
+    
+})
