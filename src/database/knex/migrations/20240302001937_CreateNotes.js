@@ -10,6 +10,4 @@ exports.up = knex => knex.schema.createTable("notes", table =>{
     table.timestamp("updated_at").default(knex.fn.now())
 })
 
-exports.down = knex => knex.schema.dropTable("notes", table =>{
-
-})
+exports.down = knex => knex.schema.dropTable("notes")
