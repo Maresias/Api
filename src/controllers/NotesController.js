@@ -63,6 +63,9 @@ class NotesController{
 
         if(tags){
             const filterTags = tags.split(',').map(tag => tag.trim()) 
+            notes = await knex("tags")
+            .whereIn("name", filterTags)
+            
         }else{
 
             notes = await knex("notes")
