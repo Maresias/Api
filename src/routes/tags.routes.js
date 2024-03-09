@@ -1,6 +1,6 @@
 const { Router} = require("express")
 
-const TagsController = require("../controllers/NotesController")
+const TagsController = require("../controllers/TagsController")
 
 const tagsRoutes = Router()
 

@@ -8,7 +8,7 @@ const routes = Router()
 
 routes.use("/users", usersRoutes)
 routes.use("/notes", notesRoutes)
-routes.use("tags", tagsRoutes)
+routes.use("/tags", tagsRoutes)
 
 
 module.exports = routes
