@@ -2,6 +2,9 @@ const knex = require("../database/knex")
 const AppError = require("../utils/AppError")
 const { compare } = require("bcryptjs")
 
+const authConfig = require("../configs/auth")
+const { sign } = require("jsonwebtoken")
+
 
 class SessionsController {
     async create(request, response ) {
@@ -17,6 +20,8 @@ class SessionsController {
         if(!passwordMatched){
             throw new AppError("E-mail e/ou senha incorreta")
         }
+
+        
         
         return response.json(user)
     }
