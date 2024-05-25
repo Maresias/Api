@@ -3,7 +3,7 @@ const AppError = require("../utils/AppError")
 const authConfig = require("../configs/auth")
 
 
-function ensureAuthentid(request, response, next){
+function ensureAuthenticated(request, response, next){
     const authHeader = request.headers.authorization
 
     if (!authHeader){
@@ -13,8 +13,17 @@ function ensureAuthentid(request, response, next){
     const [, token ] = authHeader.split(" ")
 
     try{
+        const {sub: user_id} = verify(token, authConfig.jwt.secret)
 
-    }catch{
+        request.user = {
+            id: Number(user_id)
+        }
         
+        return next()
+    }catch{
+        throw new AppError("JWT token inválido ", 401)
     }
 }
+
+
+module.export = ensureAuthenticated
