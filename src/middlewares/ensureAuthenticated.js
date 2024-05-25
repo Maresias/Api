@@ -11,4 +11,10 @@ function ensureAuthentid(request, response, next){
     }
 
     const [, token ] = authHeader.split(" ")
+
+    try{
+
+    }catch{
+        
+    }
 }
