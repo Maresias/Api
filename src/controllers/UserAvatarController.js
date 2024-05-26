@@ -2,7 +2,7 @@ const knex = require("../database/knex")
 const AppError = require("../utils/AppError")
 const DiskStorage = require("../providers/DiskStorage")
 
-class userAvatarController {
+class UserAvatarController {
     async update(request, response){
         const user_id = request.user.id
         const avatarFilename = request.file.filename
@@ -21,5 +21,12 @@ class userAvatarController {
 
         const filename = await diskStorage.saveFile(avatarFilename)
         user.avater = filename
+
+        await knex("users").update(user).where({ id: user_id})
+
+        return response.json(user)
     }
 }
+
+
+module.exports = UserAvatarController
