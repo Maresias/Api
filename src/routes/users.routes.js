@@ -1,9 +1,12 @@
-const {Router} = require("express")
+const {Router, response} = require("express")
+const multer = require("multer")
+const uploadConfig = require("../configs/upload")
 
 const UsersController = require("../controllers/UsersController")
 const ensureAuthenticated = require("../middlewares/ensureAuthenticated")
 
 const usersRoutes = Router()
+const upload = multer(uploadConfig.MULTER)
 
 // function myMiddleware(request, response, next){
 //     console.log("Voce passou pelo Middleware!")
@@ -40,7 +43,11 @@ const usersController = new UsersController()
 // usersRoutes.use(myMiddleware)
 
 usersRoutes.post("/",  usersController.create)
-usersRoutes.put("/",ensureAuthenticated, usersController.update)
+usersRoutes.put("/", ensureAuthenticated, usersController.update)
+usersRoutes.patch("/avatar", ensureAuthenticated, upload.single("avatar"), (request, response) =>{
+    console.log(request.file.filename)
+    response.json()
+})
 
 module.exports = usersRoutes
 
