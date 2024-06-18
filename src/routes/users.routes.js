@@ -49,4 +49,3 @@ usersRoutes.put("/", ensureAuthenticated, usersController.update)
 usersRoutes.patch("/avater", ensureAuthenticated, upload.single("avater"), userAvatarController.update)
 
 module.exports = usersRoutes
-
