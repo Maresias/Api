@@ -17,8 +17,9 @@ class NotesController{
                 url: links,
             }
         })
-
+        
         await knex("links").insert(linksInsert)
+
 
         const tagsInsert = tags.map(name =>{
             return {
