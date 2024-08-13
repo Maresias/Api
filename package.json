@@ -2,7 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "API developed in the Rocketseat program",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "dev": "nodemon ./src/server.js",
