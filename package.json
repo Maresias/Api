@@ -26,6 +26,7 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
+    "electron-rebuild": "^3.2.9",
     "nodemon": "^3.0.3"
   }
 }
