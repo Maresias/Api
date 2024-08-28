@@ -3,5 +3,5 @@ it("result of them sum 2 + 2 must be 4", () => {
     const b = 2
     const result = a + b
 
-    expect(result).toEqual(8)
+    expect(result).toEqual(4)
 })
