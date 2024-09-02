@@ -1,7 +1,14 @@
-it("result of them sum 2 + 2 must be 4", () => {
-    const a = 2
-    const b = 2
-    const result = a + b
+const UserCreateServices = require("./UserCreateServices")
 
-    expect(result).toEqual(4)
+ it("user should be create",  async () => {
+    const user = {
+        name: "User test",
+        email: "user@test.com",
+        password: "123"
+    }
+
+    const userCreateServices = new UserCreateServices()
+    const userCreated =  await userCreateServices.execute(user)
+
+    expect(userCreated).toHaveProperty("id")
 })
