@@ -2,7 +2,7 @@ const {hash, compare} = require("bcryptjs")
 const AppError = require("../utils/AppError")
 const sqliteConnection = require("../database/sqlite")
 const UserRepository = require("../repositories/UserRepositories")
-
+const UserCreateServices = require("../services/UserCreateServices")
 
 class UsersController{
     /** REGRAS RECOMENDADAS PARA USO DOS CONTROLLES
@@ -16,9 +16,12 @@ class UsersController{
     async create(request, response){
         const {name, email, password} = request.body
 
-        
+        const userRepositories = new UserRepository()
 
-       // const userRepositories = new UserRepository()
+        const userCreateServices = new UserCreateServices(userRepositories)
+
+        await userCreateServices.execute({ name, email, password})
+
 
        // const database = await sqliteConnection()
        // const checkUserExists = await userRepositories.findByEmail(email) 
