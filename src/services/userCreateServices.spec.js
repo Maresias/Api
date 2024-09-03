@@ -1,4 +1,5 @@
 const UserCreateServices = require("./UserCreateServices")
+const UserRepositoriesInMemory = require("../repositories/UserRepositoriesInMemory")
 
  it("user should be create",  async () => {
     const user = {
@@ -7,7 +8,8 @@ const UserCreateServices = require("./UserCreateServices")
         password: "123"
     }
 
-    const userCreateServices = new UserCreateServices()
+    const userRepositoriesInMemory = new UserRepositoriesInMemory()
+    const userCreateServices = new UserCreateServices(userRepositoriesInMemory)
     const userCreated =  await userCreateServices.execute(user)
 
     expect(userCreated).toHaveProperty("id")
