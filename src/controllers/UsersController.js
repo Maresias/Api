@@ -22,25 +22,6 @@ class UsersController{
 
         await userCreateServices.execute({ name, email, password})
 
-
-  /** Alteração ao longo do codígo
-   *      // const database = await sqliteConnection()
-       // const checkUserExists = await userRepositories.findByEmail(email) 
-        // await database.get("SELECT * FROM users WHERE email = (?)", [ email])
-        
-        //if (checkUserExists){
-            //throw new AppError("Este e-mail já está em uso. ")
-      //  }
-
-        //const hashedPassword = await hash(password, 8)
-
-       // await database.run(
-          //  "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-            //[name, email, hashedPassword]
-        //)
-        //await userRepositories.create({ name, email, password:hashedPassword})
-   */
-
         return response.status(201).json()
     }
 
